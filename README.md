@@ -1,6 +1,10 @@
-# ESG AI Co-Pilot
+# Reggie - AI Regulations Co-Pilot
 
-An AI-powered co-pilot for ESG and sustainability professionals, designed to help companies navigate complex ESG reporting requirements, compliance frameworks, and sustainability best practices.
+**"Let's Reggie it!"** - An AI-powered co-pilot for ESG and sustainability professionals, designed to help companies navigate complex ESG reporting requirements, compliance frameworks, and sustainability best practices.
+
+## 🎯 What is Reggie?
+
+Reggie is your AI-powered regulations co-pilot that makes ESG compliance simple and efficient. Whether you're navigating complex sustainability frameworks, generating compliance reports, or analyzing supply chain risks, Reggie is here to help you "Reggie it" - making regulatory compliance as easy as possible.
 
 ## Features
 
@@ -125,7 +129,7 @@ MAX_FILE_SIZE=52428800
 
 ```env
 REACT_APP_API_URL=http://localhost:8000
-REACT_APP_NAME=ESG AI Co-Pilot
+REACT_APP_NAME=Reggie - AI Regulations Co-Pilot
 REACT_APP_VERSION=1.0.0
 ```
 

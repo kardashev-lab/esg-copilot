@@ -54,6 +54,7 @@ const Dashboard: React.FC = () => {
   const fetchDashboardData = async () => {
     try {
       setLoading(true);
+      setError(null);
       // TODO: Replace with actual API call
       // const response = await fetch('/api/v1/dashboard');
       // const data = await response.json();

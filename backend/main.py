@@ -45,7 +45,7 @@ def setup_logging():
                     "level": record.levelname,
                     "logger": record.name,
                     "message": record.getMessage(),
-                    "service": "esg-copilot-api",
+                    "service": "reggie-ai-copilot-api",
                     "environment": settings.environment
                 }
                 
@@ -155,7 +155,7 @@ async def setup_health_checks():
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
-    logger.info("Starting ESG AI Co-Pilot API...")
+    logger.info("Starting Reggie - AI Regulations Co-Pilot API...")
     logger.info(f"Environment: {settings.environment}")
     logger.info(f"Debug Mode: {settings.debug}")
     logger.info(f"OpenAI Model: {settings.openai_model}")
@@ -186,12 +186,12 @@ async def lifespan(app: FastAPI):
     # Setup health checks
     await setup_health_checks()
     
-    logger.info("ESG AI Co-Pilot API startup completed")
+    logger.info("Reggie - AI Regulations Co-Pilot API startup completed")
     
     yield
     
     # Shutdown
-    logger.info("Shutting down ESG AI Co-Pilot API...")
+    logger.info("Shutting down Reggie - AI Regulations Co-Pilot API...")
     
     # Shutdown backup system
     shutdown_backup_system()
@@ -203,11 +203,11 @@ async def lifespan(app: FastAPI):
         except Exception as e:
             logger.error(f"Error closing Redis connection: {e}")
     
-    logger.info("ESG AI Co-Pilot API shutdown completed")
+    logger.info("Reggie - AI Regulations Co-Pilot API shutdown completed")
 
 # Create FastAPI app
 app = FastAPI(
-    title="ESG AI Co-Pilot API",
+    title="Reggie - AI Regulations Co-Pilot API",
     description="AI-powered co-pilot for ESG and sustainability professionals",
     version=settings.version,
     docs_url="/docs" if settings.debug else None,
@@ -296,7 +296,7 @@ async def get_metrics():
     
     return {
         "timestamp": datetime.utcnow().isoformat(),
-        "service": "esg-copilot-api",
+        "service": "reggie-ai-copilot-api",
         "version": settings.version,
         "environment": settings.environment,
         "metrics": metrics
@@ -306,7 +306,7 @@ async def get_metrics():
 @app.get("/")
 async def root():
     return {
-        "message": "ESG AI Co-Pilot API",
+        "message": "Reggie - AI Regulations Co-Pilot API",
         "version": settings.version,
         "environment": settings.environment,
         "status": "operational",

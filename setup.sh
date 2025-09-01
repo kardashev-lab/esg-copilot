@@ -122,7 +122,7 @@ cat > .env << EOF
 REACT_APP_API_URL=http://localhost:8000
 
 # Application Configuration
-REACT_APP_NAME=ESG AI Co-Pilot
+REACT_APP_NAME=Reggie - AI Regulations Co-Pilot
 REACT_APP_VERSION=1.0.0
 EOF
 

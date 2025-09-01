@@ -51,3 +51,6 @@ class ChatSession(BaseModel):
 class ChatSessionCreate(BaseModel):
     title: str
     tags: List[str] = Field(default_factory=list)
+
+class FrameworkSuggestionRequest(BaseModel):
+    query: str

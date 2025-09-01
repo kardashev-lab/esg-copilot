@@ -11,10 +11,22 @@ import {
   XMarkIcon,
   UserCircleIcon,
   BellIcon,
+  CheckCircleIcon,
+  ExclamationTriangleIcon,
+  InformationCircleIcon,
 } from '@heroicons/react/24/outline';
 
 interface LayoutProps {
   children: React.ReactNode;
+}
+
+interface Notification {
+  id: string;
+  type: 'success' | 'warning' | 'info';
+  title: string;
+  message: string;
+  timestamp: string;
+  read: boolean;
 }
 
 const navigation = [
@@ -28,7 +40,60 @@ const navigation = [
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
   const location = useLocation();
+
+  const [notifications, setNotifications] = useState<Notification[]>([
+    {
+      id: '1',
+      type: 'success',
+      title: 'Report Generated',
+      message: 'Your GRI sustainability report has been successfully generated.',
+      timestamp: '2 hours ago',
+      read: false,
+    },
+    {
+      id: '2',
+      type: 'warning',
+      title: 'Compliance Gap Detected',
+      message: 'New compliance gap identified in TCFD framework.',
+      timestamp: '1 day ago',
+      read: false,
+    },
+    {
+      id: '3',
+      type: 'info',
+      title: 'Document Uploaded',
+      message: 'Company ESG data has been successfully uploaded and processed.',
+      timestamp: '2 days ago',
+      read: true,
+    },
+  ]);
+
+  const unreadCount = notifications.filter(n => !n.read).length;
+
+  const markAsRead = (notificationId: string) => {
+    setNotifications(prev => 
+      prev.map(n => n.id === notificationId ? { ...n, read: true } : n)
+    );
+  };
+
+  const markAllAsRead = () => {
+    setNotifications(prev => prev.map(n => ({ ...n, read: true })));
+  };
+
+  const getNotificationIcon = (type: string) => {
+    switch (type) {
+      case 'success':
+        return <CheckCircleIcon className="h-5 w-5 text-green-500" />;
+      case 'warning':
+        return <ExclamationTriangleIcon className="h-5 w-5 text-yellow-500" />;
+      case 'info':
+        return <InformationCircleIcon className="h-5 w-5 text-blue-500" />;
+      default:
+        return <BellIcon className="h-5 w-5 text-gray-500" />;
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -38,10 +103,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="fixed inset-y-0 left-0 flex w-64 flex-col bg-white shadow-xl">
           <div className="flex h-16 items-center justify-between px-4">
             <div className="flex items-center">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">ESG</span>
-              </div>
-              <span className="ml-2 text-lg font-semibold text-gray-900">AI Co-Pilot</span>
+              <img 
+                src="/images/reggie-logo-text-dark.png" 
+                alt="Reggie AI Co-Pilot" 
+                className="h-8 w-auto"
+              />
             </div>
             <button
               onClick={() => setSidebarOpen(false)}
@@ -82,10 +148,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="flex flex-col flex-grow bg-white shadow-xl">
           <div className="flex h-16 items-center px-4">
             <div className="flex items-center">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">ESG</span>
-              </div>
-              <span className="ml-2 text-lg font-semibold text-gray-900">AI Co-Pilot</span>
+              <img 
+                src="/images/reggie-logo-dark.png" 
+                alt="Reggie AI Co-Pilot" 
+                className="h-8 w-auto"
+              />
             </div>
           </div>
           <nav className="flex-1 space-y-1 px-2 py-4">
@@ -130,13 +197,88 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
             <div className="flex flex-1"></div>
             <div className="flex items-center gap-x-4 lg:gap-x-6">
-              <button
-                type="button"
-                className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
-              >
-                <span className="sr-only">View notifications</span>
-                <BellIcon className="h-6 w-6" />
-              </button>
+              {/* Notifications */}
+              <div className="relative">
+                <button
+                  type="button"
+                  className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500 relative"
+                  onClick={() => setNotificationsOpen(!notificationsOpen)}
+                >
+                  <span className="sr-only">View notifications</span>
+                  <BellIcon className="h-6 w-6" />
+                  {unreadCount > 0 && (
+                    <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-xs text-white flex items-center justify-center">
+                      {unreadCount > 9 ? '9+' : unreadCount}
+                    </span>
+                  )}
+                </button>
+
+                {/* Notifications dropdown */}
+                {notificationsOpen && (
+                  <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                    <div className="p-4 border-b border-gray-200">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-sm font-medium text-gray-900">Notifications</h3>
+                        {unreadCount > 0 && (
+                          <button
+                            onClick={markAllAsRead}
+                            className="text-xs text-blue-600 hover:text-blue-800"
+                          >
+                            Mark all as read
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    <div className="max-h-96 overflow-y-auto">
+                      {notifications.length > 0 ? (
+                        notifications.map((notification) => (
+                          <div
+                            key={notification.id}
+                            className={`p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer ${
+                              !notification.read ? 'bg-blue-50' : ''
+                            }`}
+                            onClick={() => markAsRead(notification.id)}
+                          >
+                            <div className="flex items-start space-x-3">
+                              {getNotificationIcon(notification.type)}
+                              <div className="flex-1 min-w-0">
+                                <p className="text-sm font-medium text-gray-900">
+                                  {notification.title}
+                                </p>
+                                <p className="text-sm text-gray-500 mt-1">
+                                  {notification.message}
+                                </p>
+                                <p className="text-xs text-gray-400 mt-2">
+                                  {notification.timestamp}
+                                </p>
+                              </div>
+                              {!notification.read && (
+                                <div className="h-2 w-2 bg-blue-500 rounded-full flex-shrink-0 mt-2"></div>
+                              )}
+                            </div>
+                          </div>
+                        ))
+                      ) : (
+                        <div className="p-4 text-center text-gray-500">
+                          <BellIcon className="h-8 w-8 mx-auto mb-2 text-gray-300" />
+                          <p className="text-sm">No notifications</p>
+                        </div>
+                      )}
+                    </div>
+                    {notifications.length > 0 && (
+                      <div className="p-3 border-t border-gray-200">
+                        <Link
+                          to="/settings"
+                          className="text-sm text-blue-600 hover:text-blue-800 block text-center"
+                          onClick={() => setNotificationsOpen(false)}
+                        >
+                          View all notifications
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
 
               {/* Separator */}
               <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200" />
@@ -161,6 +303,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         </main>
       </div>
+
+      {/* Click outside to close notifications */}
+      {notificationsOpen && (
+        <div
+          className="fixed inset-0 z-40"
+          onClick={() => setNotificationsOpen(false)}
+        />
+      )}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import uuid
 from datetime import datetime
 import logging
 
-from app.models.chat import ChatRequest, ChatResponse, ChatSession, ChatSessionCreate
+from app.models.chat import ChatRequest, ChatResponse, ChatSession, ChatSessionCreate, FrameworkSuggestionRequest
 from app.services.ai_service import AIService
 from app.services.vector_store import VectorStore
 
@@ -229,3 +229,72 @@ async def get_suggested_questions(framework: Optional[str] = None):
             "framework": "general",
             "questions": general_questions
         }
+
+@router.post("/suggest-frameworks")
+async def suggest_frameworks(request: FrameworkSuggestionRequest):
+    """Use LLM to suggest relevant frameworks based on user query"""
+    
+    query = request.query
+    
+    try:
+        # Define available frameworks for the LLM to choose from
+        available_frameworks = {
+            "eu": ["csrd", "esrs", "sfdr"],
+            "us": ["sasb", "sec-climate", "california-sb253"],
+            "uk": ["uk-tcfd", "uk-sdr"],
+            "canada": ["canada-tcfd", "canada-esg"],
+            "australia": ["australia-climate", "australia-esg"],
+            "japan": ["japan-tcfd", "japan-esg"],
+            "global": ["gri", "tcfd", "ifrs-s1", "ifrs-s2", "cdp"]
+        }
+        
+        # Create a prompt for the LLM to analyze the query
+        framework_selection_prompt = f"""You are an ESG expert. Analyze the following user query and suggest which ESG frameworks, regulations, or standards would be most relevant for answering their question.
+
+Available frameworks by region:
+- EU: CSRD, ESRS, SFDR
+- US: SASB, SEC Climate Rule, California SB 253
+- UK: UK TCFD, UK SDR
+- Canada: Canada TCFD, Canada ESG
+- Australia: Australia Climate, Australia ESG
+- Japan: Japan TCFD, Japan ESG
+- Global: GRI, TCFD, IFRS S1, IFRS S2, CDP
+
+User Query: "{query}"
+
+Based on this query, which frameworks would be most relevant? Consider:
+1. Geographic scope mentioned in the query
+2. Specific frameworks mentioned
+3. Type of ESG topic (climate, social, governance, general)
+4. Industry context if mentioned
+
+Return ONLY a JSON array of framework IDs that should be selected. For example: ["gri", "tcfd", "csrd"]
+
+Framework IDs to choose from: {list(available_frameworks.values())}"""
+
+        # Use the AI service to get framework suggestions
+        ai_result = await ai_service.generate_framework_suggestions(framework_selection_prompt)
+        
+        # Parse the JSON response
+        try:
+            import json
+            suggested_frameworks = json.loads(ai_result)
+            if not isinstance(suggested_frameworks, list):
+                suggested_frameworks = []
+        except (json.JSONDecodeError, TypeError):
+            # Fallback: extract framework IDs using regex
+            import re
+            framework_ids = re.findall(r'["\']([a-z-]+)["\']', ai_result)
+            suggested_frameworks = [fw for fw in framework_ids if any(fw in frameworks for frameworks in available_frameworks.values())]
+        
+        return {
+            "suggested_frameworks": suggested_frameworks,
+            "available_frameworks": available_frameworks
+        }
+        
+    except Exception as e:
+        logger.error(f"Error suggesting frameworks: {e}", exc_info=True)
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error suggesting frameworks: {str(e)}"
+        )

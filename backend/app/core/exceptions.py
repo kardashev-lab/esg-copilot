@@ -1,5 +1,5 @@
 """
-Custom exceptions and error handling for the ESG AI Co-Pilot API
+Custom exceptions and error handling for the Reggie - AI Regulations Co-Pilot API
 """
 
 from typing import Any, Dict, Optional
@@ -288,8 +288,8 @@ async def general_exception_handler(request: Request, exc: Exception):
         f"Unhandled exception: {type(exc).__name__}",
         extra={
             "exception_type": type(exc).__name__,
-            "message": str(exc),
-            "request_id": getattr(request.state, "request_id", None),
+            "error_message": str(exc),
+            "req_id": getattr(request.state, "request_id", None),
             "path": str(request.url.path),
             "method": request.method
         },

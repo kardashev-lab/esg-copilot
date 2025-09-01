@@ -20,7 +20,7 @@
 /* Base styles */
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Epunda Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -127,6 +127,15 @@ body {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+/* Typography utility classes */
+.heading-font {
+  font-family: 'Epunda Slab', serif;
+}
+
+.body-font {
+  font-family: 'Epunda Sans', sans-serif;
 }
 
 /* ESG-specific utility classes */

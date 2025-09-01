@@ -25,7 +25,7 @@ print_error() {
 }
 
 echo ""
-echo "🚀 Setting up ESG AI Co-Pilot Backend Only..."
+echo "🚀 Setting up Reggie - AI Regulations Co-Pilot Backend Only..."
 echo ""
 
 # Check Python version

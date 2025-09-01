@@ -1,7 +1,7 @@
 {
-  "name": "esg-ai-copilot-frontend",
+  "name": "reggie-ai-copilot-frontend",
   "version": "1.0.0",
-  "description": "ESG AI Co-Pilot Frontend - Professional AI-powered co-pilot for ESG and sustainability professionals",
+  "description": "Reggie - AI Regulations Co-Pilot Frontend - Professional AI-powered co-pilot for ESG and sustainability professionals",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.17",

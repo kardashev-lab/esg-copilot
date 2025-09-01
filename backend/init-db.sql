@@ -1,4 +1,4 @@
--- ESG AI Co-Pilot Database Initialization
+-- Reggie - AI Regulations Co-Pilot Database Initialization
 -- This script sets up the initial database schema and security settings
 
 -- Create extensions
@@ -278,7 +278,7 @@ GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA audit TO esg_user;
 -- Password is 'admin123' hashed with bcrypt
 INSERT INTO users (email, hashed_password, full_name, role, is_active)
 VALUES (
-    'admin@esg-copilot.com',
+    'admin@reggie-ai-copilot.com',
     '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj0kOQyXVyDO',
     'ESG Copilot Admin',
     'admin',
@@ -301,5 +301,5 @@ $$ LANGUAGE plpgsql;
 -- Log successful initialization
 DO $$
 BEGIN
-    RAISE NOTICE 'ESG AI Co-Pilot database initialization completed successfully';
+    RAISE NOTICE 'Reggie - AI Regulations Co-Pilot database initialization completed successfully';
 END $$;

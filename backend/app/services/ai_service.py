@@ -1,10 +1,11 @@
 import time
+import json
+import re
 from typing import List, Dict, Any, Optional
 from langchain_openai import ChatOpenAI
 from langchain.schema import HumanMessage, SystemMessage
 from langchain.prompts import ChatPromptTemplate
 from langchain.chains import LLMChain
-import json
 
 from app.core.config import settings
 from app.services.vector_store import VectorStore
@@ -29,7 +30,26 @@ class AIService:
         
         # Search for relevant documents if not provided
         if not context_documents:
-            context_documents = await self.vector_store.search(query, n_results=5)
+            if framework_focus:
+                # Handle multiple frameworks
+                frameworks = [fw.strip() for fw in framework_focus.split(',') if fw.strip()]
+                
+                # Search within selected frameworks
+                all_context_docs = []
+                for framework in frameworks:
+                    try:
+                        framework_docs = await self.vector_store.search_by_framework(query, framework, n_results=3)
+                        all_context_docs.extend(framework_docs)
+                    except Exception as e:
+                        # If framework-specific search fails, fall back to general search
+                        general_docs = await self.vector_store.search(query, n_results=2)
+                        all_context_docs.extend(general_docs)
+                
+                # Sort by relevance and take top results
+                all_context_docs.sort(key=lambda x: x.get('distance', 1.0))
+                context_documents = all_context_docs[:5]
+            else:
+                context_documents = await self.vector_store.search(query, n_results=5)
         
         # Build context from documents
         context = self._build_context(context_documents)
@@ -40,18 +60,21 @@ class AIService:
         # Generate response
         messages = [
             SystemMessage(content=prompt_template),
-            HumanMessage(content=f"Context:\n{context}\n\nUser Question: {query}")
+            HumanMessage(content=f"Context: {context}\n\nQuestion: {query}")
         ]
         
         try:
             response = await self.llm.agenerate([messages])
-            ai_response = response.generations[0][0].text
+            ai_response = response.generations[0][0].text.strip()
+            
+            # Remove any trailing "O" or "0" that might be added by the LLM
+            ai_response = re.sub(r'[O0]\s*$', '', ai_response).strip()
             
             # Calculate confidence score (simplified)
             confidence_score = self._calculate_confidence(context_documents)
             
             # Generate suggested actions
-            suggested_actions = self._generate_suggested_actions(query, ai_response)
+            suggested_actions = await self._generate_suggested_actions(query, ai_response)
             
             processing_time = time.time() - start_time
             
@@ -71,6 +94,68 @@ class AIService:
                 "references": [],
                 "suggested_actions": ["Please try rephrasing your question or contact support if the issue persists."]
             }
+    
+    async def generate_framework_suggestions(self, prompt: str) -> str:
+        """Generate framework suggestions using LLM"""
+        
+        try:
+            messages = [
+                SystemMessage(content="ESG framework selector. Return only a JSON array of framework IDs from: gri, sasb, tcfd, csrd, esrs, ifrs-s1, ifrs-s2, uk-tcfd, uk-sdr, canada-tcfd, canada-esg, australia-climate, australia-esg, japan-tcfd, japan-esg, sec-climate, california-sb253, sfdr, cdp. Example: [\"gri\", \"tcfd\"]"),
+                HumanMessage(content=f"Query: {prompt}")
+            ]
+            
+            response = await self.llm.agenerate([messages])
+            return response.generations[0][0].text.strip()
+            
+        except Exception as e:
+            # Fallback to simple keyword matching
+            return self._fallback_framework_suggestion(prompt)
+    
+    def _fallback_framework_suggestion(self, prompt: str) -> str:
+        """Fallback framework suggestion using keyword matching"""
+        prompt_lower = prompt.lower()
+        suggestions = []
+        
+        # Keyword-based framework selection
+        if any(word in prompt_lower for word in ["eu", "european", "europe"]):
+            suggestions.extend(["csrd", "esrs", "sfdr"])
+        
+        if any(word in prompt_lower for word in ["us", "united states", "america", "american"]):
+            suggestions.extend(["sasb", "sec-climate", "california-sb253"])
+        
+        if any(word in prompt_lower for word in ["uk", "united kingdom", "british"]):
+            suggestions.extend(["uk-tcfd", "uk-sdr"])
+        
+        if any(word in prompt_lower for word in ["canada", "canadian"]):
+            suggestions.extend(["canada-tcfd", "canada-esg"])
+        
+        if any(word in prompt_lower for word in ["australia", "australian"]):
+            suggestions.extend(["australia-climate", "australia-esg"])
+        
+        if any(word in prompt_lower for word in ["japan", "japanese"]):
+            suggestions.extend(["japan-tcfd", "japan-esg"])
+        
+        # Framework-specific keywords
+        if any(word in prompt_lower for word in ["gri", "global reporting"]):
+            suggestions.append("gri")
+        
+        if any(word in prompt_lower for word in ["sasb", "sustainability accounting"]):
+            suggestions.append("sasb")
+        
+        if any(word in prompt_lower for word in ["tcfd", "climate-related", "climate risk"]):
+            suggestions.append("tcfd")
+        
+        if any(word in prompt_lower for word in ["csrd", "corporate sustainability reporting"]):
+            suggestions.append("csrd")
+        
+        if any(word in prompt_lower for word in ["ifrs", "international financial reporting"]):
+            suggestions.extend(["ifrs-s1", "ifrs-s2"])
+        
+        # If no specific frameworks mentioned, suggest global ones for general ESG queries
+        if not suggestions and any(word in prompt_lower for word in ["esg", "sustainability", "environmental", "social", "governance"]):
+            suggestions.extend(["gri", "tcfd"])
+        
+        return json.dumps(list(set(suggestions)))  # Remove duplicates
     
     def _build_context(self, documents: List[Dict[str, Any]]) -> str:
         """Build context string from retrieved documents"""
@@ -93,14 +178,53 @@ class AIService:
         base_template = self.prompts["base"]
         
         if framework_focus:
+            # Handle multiple frameworks (comma-separated)
+            frameworks = [fw.strip().upper() for fw in framework_focus.split(',') if fw.strip()]
+            
             framework_templates = {
                 "GRI": self.prompts["gri"],
                 "SASB": self.prompts["sasb"],
                 "TCFD": self.prompts["tcfd"],
-                "CSRD": self.prompts["csrd"]
+                "CSRD": self.prompts["csrd"],
+                "ESRS": self.prompts["csrd"],  # ESRS is part of CSRD
+                "IFRS-S1": self.prompts["ifrs"],
+                "IFRS-S2": self.prompts["ifrs"],
+                "UK-TCFD": self.prompts["tcfd"],
+                "CANADA-TCFD": self.prompts["tcfd"],
+                "AUSTRALIA-CLIMATE": self.prompts["tcfd"],
+                "JAPAN-TCFD": self.prompts["tcfd"],
+                "SEC-CLIMATE": self.prompts["sasb"],  # SEC climate rule aligns with SASB
+                "CALIFORNIA-SB253": self.prompts["sasb"],
+                "SFDR": self.prompts["csrd"],  # SFDR is EU regulation
+                "UK-SDR": self.prompts["tcfd"],
+                "CANADA-ESG": self.prompts["gri"],
+                "AUSTRALIA-ESG": self.prompts["gri"],
+                "JAPAN-ESG": self.prompts["gri"],
+                "CDP": self.prompts["tcfd"],
             }
-            if framework_focus in framework_templates:
-                return framework_templates[framework_focus]
+            
+            # If multiple frameworks are selected, use a combined approach
+            if len(frameworks) > 1:
+                selected_templates = []
+                for fw in frameworks:
+                    if fw in framework_templates:
+                        selected_templates.append(framework_templates[fw])
+                
+                if selected_templates:
+                    # Combine templates for multi-framework queries
+                    combined_template = f"""You are an expert ESG consultant with expertise in multiple frameworks: {', '.join(frameworks)}.
+
+{base_template}
+
+When providing guidance, consider the requirements and best practices from all relevant frameworks: {', '.join(frameworks)}.
+
+"""
+                    return combined_template
+            
+            # Single framework or no matching frameworks
+            for fw in frameworks:
+                if fw in framework_templates:
+                    return framework_templates[fw]
         
         # Detect query type and select specialized template
         query_lower = query.lower()
@@ -129,8 +253,37 @@ class AIService:
         confidence = max(0.0, min(1.0, 1.0 - avg_distance))
         return round(confidence, 2)
     
-    def _generate_suggested_actions(self, query: str, response: str) -> List[str]:
-        """Generate suggested follow-up actions based on the query and response"""
+    async def _generate_suggested_actions(self, query: str, response: str) -> List[str]:
+        """Generate suggested follow-up actions using LLM"""
+        try:
+            action_prompt = f"Query: {query}\nResponse: {response[:300]}...\nSuggest 3 actionable next steps. Return only JSON array: [\"action1\", \"action2\", \"action3\"]"
+
+            messages = [
+                SystemMessage(content="ESG action suggester. Return only JSON array of 3 actionable steps. Example: [\"Review GRI standards\", \"Conduct materiality assessment\", \"Engage stakeholders\"]"),
+                HumanMessage(content=action_prompt)
+            ]
+            
+            ai_result = await self.llm.agenerate([messages])
+            action_text = ai_result.generations[0][0].text.strip()
+            
+            # Parse JSON response
+            try:
+                import json
+                actions = json.loads(action_text)
+                if isinstance(actions, list):
+                    return actions[:3]  # Limit to 3 suggestions
+            except (json.JSONDecodeError, TypeError):
+                pass
+            
+            # Fallback to keyword-based suggestions
+            return self._fallback_suggested_actions(query, response)
+            
+        except Exception as e:
+            # Fallback to keyword-based suggestions
+            return self._fallback_suggested_actions(query, response)
+    
+    def _fallback_suggested_actions(self, query: str, response: str) -> List[str]:
+        """Fallback suggested actions based on keywords"""
         suggestions = []
         query_lower = query.lower()
         
@@ -167,107 +320,23 @@ class AIService:
     def _load_prompts(self) -> Dict[str, str]:
         """Load prompt templates for different use cases"""
         return {
-            "base": """You are an expert ESG (Environmental, Social, and Governance) consultant with deep knowledge of sustainability reporting frameworks, regulations, and best practices. You help companies navigate complex ESG requirements and create meaningful sustainability reports.
-
-Your expertise covers:
-- Global Reporting Initiative (GRI) Standards
-- Sustainability Accounting Standards Board (SASB) Standards
-- Task Force on Climate-related Financial Disclosures (TCFD)
-- EU Corporate Sustainability Reporting Directive (CSRD)
-- IFRS Sustainability Standards (S1/S2)
-
-Provide accurate, practical, and actionable advice based on the context provided. Always cite specific frameworks and standards when relevant. Be professional, clear, and concise in your responses.""",
+            "base": """ESG consultant expert. Provide accurate, practical advice on sustainability reporting frameworks (GRI, SASB, TCFD, CSRD, IFRS). Cite specific standards when relevant. Be professional and concise.""",
             
-            "gri": """You are a GRI (Global Reporting Initiative) Standards expert. You help companies understand and implement GRI reporting requirements effectively.
-
-Key GRI principles to follow:
-- Materiality: Focus on topics that reflect the organization's significant economic, environmental, and social impacts
-- Stakeholder inclusiveness: Consider the reasonable expectations and interests of stakeholders
-- Sustainability context: Present performance in the context of broader sustainability issues
-- Completeness: Include all material topics and their boundaries
-
-When providing guidance, always reference specific GRI disclosures and explain their requirements clearly.""",
+            "gri": """GRI Standards expert. Focus on materiality, stakeholder inclusiveness, sustainability context, and completeness. Reference specific GRI disclosures clearly.""",
             
-            "sasb": """You are a SASB (Sustainability Accounting Standards Board) Standards expert. You help companies identify and report on financially material sustainability information.
-
-SASB focuses on:
-- Industry-specific sustainability topics that are likely to affect financial performance
-- Materiality from an investor perspective
-- Quantitative and qualitative disclosure requirements
-- Industry-specific metrics and accounting metrics
-
-Provide guidance that helps companies identify their most material sustainability topics and report them effectively to investors.""",
+            "sasb": """SASB Standards expert. Focus on industry-specific, financially material sustainability topics. Emphasize investor perspective and quantitative metrics.""",
             
-            "tcfd": """You are a TCFD (Task Force on Climate-related Financial Disclosures) expert. You help companies implement climate-related financial disclosures.
-
-TCFD framework covers four areas:
-- Governance: Describe the board's oversight of climate-related risks and opportunities
-- Strategy: Describe the actual and potential impacts of climate-related risks and opportunities
-- Risk Management: Describe how the organization identifies, assesses, and manages climate-related risks
-- Metrics and Targets: Disclose the metrics and targets used to assess and manage climate-related risks and opportunities
-
-Focus on helping companies understand and implement these disclosure requirements effectively.""",
+            "tcfd": """TCFD expert. Cover governance, strategy, risk management, and metrics/targets for climate-related financial disclosures.""",
             
-            "csrd": """You are a CSRD (Corporate Sustainability Reporting Directive) expert. You help EU companies and those doing business in the EU understand and comply with sustainability reporting requirements.
-
-CSRD requirements include:
-- Double materiality assessment (financial and impact materiality)
-- Reporting on environmental, social, and governance matters
-- Third-party assurance requirements
-- Digital tagging of sustainability information
-- Alignment with European Sustainability Reporting Standards (ESRS)
-
-Provide guidance that helps companies navigate these complex requirements and prepare for compliance.""",
+            "csrd": """CSRD expert. Cover double materiality, ESG reporting, third-party assurance, digital tagging, and ESRS alignment for EU compliance.""",
             
-            "report_generation": """You are an expert sustainability report writer. You help companies create compelling, accurate, and compliant sustainability reports.
-
-When drafting report content:
-- Use clear, professional language appropriate for stakeholders
-- Include specific data and metrics when available
-- Follow the relevant reporting framework requirements
-- Structure content logically with clear headings
-- Provide context for performance data
-- Include both positive achievements and areas for improvement
-- Ensure accuracy and avoid greenwashing
-
-Create content that is both informative and engaging for readers.""",
+            "ifrs": """IFRS Sustainability Standards expert. Cover S1 (general requirements) and S2 (climate disclosures) including governance, strategy, risk management, metrics, targets, and GHG emissions.""",
             
-            "compliance": """You are an ESG compliance expert. You help companies understand and meet regulatory and voluntary reporting requirements.
-
-When providing compliance guidance:
-- Clearly identify specific requirements and deadlines
-- Explain the scope and applicability of regulations
-- Highlight key differences between frameworks
-- Provide practical implementation steps
-- Identify potential compliance gaps
-- Suggest risk mitigation strategies
-- Reference official sources and documentation
-
-Focus on actionable compliance advice that helps companies meet their obligations effectively.""",
+            "report_generation": """Sustainability report writer. Use clear, professional language with specific data and metrics. Follow framework requirements, structure logically, provide context, and avoid greenwashing.""",
             
-            "risk_management": """You are an ESG risk management expert. You help companies identify, assess, and manage sustainability-related risks.
-
-When analyzing risks:
-- Consider both physical and transition climate risks
-- Assess social and governance risks
-- Evaluate supply chain vulnerabilities
-- Identify regulatory and reputational risks
-- Provide risk mitigation strategies
-- Suggest monitoring and reporting approaches
-- Consider stakeholder perspectives
-
-Provide comprehensive risk assessment and management guidance.""",
+            "compliance": """ESG compliance expert. Identify requirements, deadlines, scope, framework differences, implementation steps, compliance gaps, and risk mitigation strategies.""",
             
-            "benchmarking": """You are an ESG benchmarking expert. You help companies compare their sustainability performance and practices with peers and industry leaders.
-
-When conducting benchmarking analysis:
-- Identify relevant peer companies and industry standards
-- Compare performance metrics and disclosure practices
-- Highlight best practices and innovation opportunities
-- Identify performance gaps and improvement areas
-- Consider industry-specific challenges and opportunities
-- Provide actionable recommendations for improvement
-- Consider both quantitative and qualitative comparisons
-
-Provide insights that help companies understand their competitive position and identify improvement opportunities."""
+            "risk_management": """ESG risk management expert. Consider physical/transition climate risks, social/governance risks, supply chain vulnerabilities, regulatory/reputational risks, and provide mitigation strategies.""",
+            
+            "benchmarking": """ESG benchmarking expert. Compare performance metrics, disclosure practices, best practices, performance gaps, industry challenges, and provide actionable recommendations."""
         }

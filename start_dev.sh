@@ -1,7 +1,7 @@
 #!/bin/bash
 # Start both backend and frontend in development mode
 
-echo "Starting ESG AI Co-Pilot in development mode..."
+echo "Starting Reggie - AI Regulations Co-Pilot in development mode..."
 
 # Start backend in background
 echo "Starting backend server..."

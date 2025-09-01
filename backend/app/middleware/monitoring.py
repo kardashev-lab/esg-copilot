@@ -64,7 +64,7 @@ class MonitoringMiddleware(BaseHTTPMiddleware):
             logger.error(
                 f"Request error",
                 extra={
-                    "request_id": request_id,
+                    "req_id": request_id,
                     "method": request.method,
                     "path": request.url.path,
                     "error": str(e),
@@ -90,7 +90,7 @@ class MonitoringMiddleware(BaseHTTPMiddleware):
         logger.info(
             f"Request started",
             extra={
-                "request_id": request_id,
+                "req_id": request_id,
                 "method": request.method,
                 "path": request.url.path,
                 "query_params": str(request.query_params),
@@ -107,7 +107,7 @@ class MonitoringMiddleware(BaseHTTPMiddleware):
         logger.info(
             f"Request completed",
             extra={
-                "request_id": request_id,
+                "req_id": request_id,
                 "method": request.method,
                 "path": request.url.path,
                 "status_code": response.status_code,
@@ -194,7 +194,7 @@ class StructuredLoggingMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         # Set up structured logging context
         extra_context = {
-            "service": "esg-copilot-api",
+            "service": "reggie-ai-copilot-api",
             "environment": "production",  # This should come from settings
             "request_id": getattr(request.state, "request_id", str(uuid.uuid4())),
             "client_ip": self._get_client_ip(request),

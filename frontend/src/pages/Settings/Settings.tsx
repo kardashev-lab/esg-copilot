@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Cog6ToothIcon,
   UserIcon,
   KeyIcon,
   BellIcon,
   GlobeAltIcon,
+  CheckCircleIcon,
+  ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline';
 
 const Settings: React.FC = () => {
@@ -15,6 +17,24 @@ const Settings: React.FC = () => {
     compliance: true,
     reports: true,
   });
+  const [profileData, setProfileData] = useState({
+    fullName: 'ESG Professional',
+    email: 'professional@company.com',
+    company: 'Sustainable Corp',
+    role: 'Sustainability Manager',
+  });
+  const [apiSettings, setApiSettings] = useState({
+    openaiKey: 'sk-...',
+    model: 'GPT-4 (Recommended)',
+  });
+  const [preferences, setPreferences] = useState({
+    defaultFramework: 'GRI Standards',
+    language: 'English',
+    timezone: 'UTC-5 (Eastern Time)',
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
   const tabs = [
     { id: 'profile', name: 'Profile', icon: UserIcon },
@@ -22,6 +42,71 @@ const Settings: React.FC = () => {
     { id: 'api', name: 'API Settings', icon: KeyIcon },
     { id: 'preferences', name: 'Preferences', icon: Cog6ToothIcon },
   ];
+
+  useEffect(() => {
+    // Load saved settings from localStorage or API
+    loadSettings();
+  }, []);
+
+  const loadSettings = () => {
+    // In a real implementation, this would load from an API
+    // For now, use localStorage
+    const savedNotifications = localStorage.getItem('notifications');
+    const savedProfile = localStorage.getItem('profile');
+    const savedApi = localStorage.getItem('apiSettings');
+    const savedPreferences = localStorage.getItem('preferences');
+
+    if (savedNotifications) {
+      setNotifications(JSON.parse(savedNotifications));
+    }
+    if (savedProfile) {
+      setProfileData(JSON.parse(savedProfile));
+    }
+    if (savedApi) {
+      setApiSettings(JSON.parse(savedApi));
+    }
+    if (savedPreferences) {
+      setPreferences(JSON.parse(savedPreferences));
+    }
+  };
+
+  const saveSettings = async (type: string, data: any) => {
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
+
+    try {
+      // In a real implementation, this would save to an API
+      // For now, save to localStorage
+      localStorage.setItem(type, JSON.stringify(data));
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setSuccess(`${type.charAt(0).toUpperCase() + type.slice(1)} settings saved successfully`);
+    } catch (error) {
+      console.error('Save error:', error);
+      setError('Failed to save settings. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSaveProfile = async () => {
+    await saveSettings('profile', profileData);
+  };
+
+  const handleSaveNotifications = async () => {
+    await saveSettings('notifications', notifications);
+  };
+
+  const handleSaveApiSettings = async () => {
+    await saveSettings('apiSettings', apiSettings);
+  };
+
+  const handleSavePreferences = async () => {
+    await saveSettings('preferences', preferences);
+  };
 
   return (
     <div className="space-y-6">
@@ -32,6 +117,37 @@ const Settings: React.FC = () => {
           Manage your account settings and preferences
         </p>
       </div>
+
+      {/* Error/Success Messages */}
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <div className="flex items-center">
+            <ExclamationTriangleIcon className="h-5 w-5 text-red-500 mr-2" />
+            <span className="text-red-700">{error}</span>
+            <button
+              onClick={() => setError(null)}
+              className="ml-auto text-red-500 hover:text-red-700"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
+
+      {success && (
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+          <div className="flex items-center">
+            <CheckCircleIcon className="h-5 w-5 text-green-500 mr-2" />
+            <span className="text-green-700">{success}</span>
+            <button
+              onClick={() => setSuccess(null)}
+              className="ml-auto text-green-500 hover:text-green-700"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="flex space-x-6">
         {/* Sidebar */}
@@ -66,7 +182,8 @@ const Settings: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue="ESG Professional"
+                    value={profileData.fullName}
+                    onChange={(e) => setProfileData(prev => ({ ...prev, fullName: e.target.value }))}
                     className="input-field"
                   />
                 </div>
@@ -76,7 +193,8 @@ const Settings: React.FC = () => {
                   </label>
                   <input
                     type="email"
-                    defaultValue="professional@company.com"
+                    value={profileData.email}
+                    onChange={(e) => setProfileData(prev => ({ ...prev, email: e.target.value }))}
                     className="input-field"
                   />
                 </div>
@@ -86,7 +204,8 @@ const Settings: React.FC = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue="Sustainable Corp"
+                    value={profileData.company}
+                    onChange={(e) => setProfileData(prev => ({ ...prev, company: e.target.value }))}
                     className="input-field"
                   />
                 </div>
@@ -94,14 +213,24 @@ const Settings: React.FC = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Role
                   </label>
-                  <select className="input-field">
+                  <select 
+                    value={profileData.role}
+                    onChange={(e) => setProfileData(prev => ({ ...prev, role: e.target.value }))}
+                    className="input-field"
+                  >
                     <option>Sustainability Manager</option>
                     <option>ESG Analyst</option>
                     <option>Chief Sustainability Officer</option>
                     <option>Compliance Officer</option>
                   </select>
                 </div>
-                <button className="btn-primary">Save Changes</button>
+                <button 
+                  onClick={handleSaveProfile}
+                  disabled={loading}
+                  className="btn-primary"
+                >
+                  {loading ? 'Saving...' : 'Save Changes'}
+                </button>
               </div>
             </div>
           )}
@@ -185,6 +314,14 @@ const Settings: React.FC = () => {
                     />
                   </button>
                 </div>
+
+                <button 
+                  onClick={handleSaveNotifications}
+                  disabled={loading}
+                  className="btn-primary"
+                >
+                  {loading ? 'Saving...' : 'Save Notification Settings'}
+                </button>
               </div>
             </div>
           )}
@@ -199,7 +336,8 @@ const Settings: React.FC = () => {
                   </label>
                   <input
                     type="password"
-                    defaultValue="sk-..."
+                    value={apiSettings.openaiKey}
+                    onChange={(e) => setApiSettings(prev => ({ ...prev, openaiKey: e.target.value }))}
                     className="input-field"
                     placeholder="Enter your OpenAI API key"
                   />
@@ -211,13 +349,23 @@ const Settings: React.FC = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Model Preference
                   </label>
-                  <select className="input-field">
+                  <select 
+                    value={apiSettings.model}
+                    onChange={(e) => setApiSettings(prev => ({ ...prev, model: e.target.value }))}
+                    className="input-field"
+                  >
                     <option>GPT-4 (Recommended)</option>
                     <option>GPT-3.5 Turbo</option>
                     <option>GPT-4 Turbo</option>
                   </select>
                 </div>
-                <button className="btn-primary">Update API Settings</button>
+                <button 
+                  onClick={handleSaveApiSettings}
+                  disabled={loading}
+                  className="btn-primary"
+                >
+                  {loading ? 'Saving...' : 'Update API Settings'}
+                </button>
               </div>
             </div>
           )}
@@ -230,7 +378,11 @@ const Settings: React.FC = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Default Framework
                   </label>
-                  <select className="input-field">
+                  <select 
+                    value={preferences.defaultFramework}
+                    onChange={(e) => setPreferences(prev => ({ ...prev, defaultFramework: e.target.value }))}
+                    className="input-field"
+                  >
                     <option>GRI Standards</option>
                     <option>SASB Standards</option>
                     <option>TCFD Framework</option>
@@ -241,7 +393,11 @@ const Settings: React.FC = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Language
                   </label>
-                  <select className="input-field">
+                  <select 
+                    value={preferences.language}
+                    onChange={(e) => setPreferences(prev => ({ ...prev, language: e.target.value }))}
+                    className="input-field"
+                  >
                     <option>English</option>
                     <option>Spanish</option>
                     <option>French</option>
@@ -252,14 +408,24 @@ const Settings: React.FC = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Time Zone
                   </label>
-                  <select className="input-field">
+                  <select 
+                    value={preferences.timezone}
+                    onChange={(e) => setPreferences(prev => ({ ...prev, timezone: e.target.value }))}
+                    className="input-field"
+                  >
                     <option>UTC-5 (Eastern Time)</option>
                     <option>UTC-8 (Pacific Time)</option>
                     <option>UTC+0 (GMT)</option>
                     <option>UTC+1 (Central European Time)</option>
                   </select>
                 </div>
-                <button className="btn-primary">Save Preferences</button>
+                <button 
+                  onClick={handleSavePreferences}
+                  disabled={loading}
+                  className="btn-primary"
+                >
+                  {loading ? 'Saving...' : 'Save Preferences'}
+                </button>
               </div>
             </div>
           )}

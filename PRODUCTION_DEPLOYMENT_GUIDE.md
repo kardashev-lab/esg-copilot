@@ -1,6 +1,6 @@
-# ESG AI Co-Pilot - Production Deployment Guide
+# Reggie - AI Regulations Co-Pilot - Production Deployment Guide
 
-This guide provides comprehensive instructions for deploying the ESG AI Co-Pilot application to production environments.
+This guide provides comprehensive instructions for deploying the Reggie - AI Regulations Co-Pilot application to production environments.
 
 ## 🚀 Quick Production Deployment
 

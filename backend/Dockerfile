@@ -120,7 +120,7 @@ loglevel = os.getenv("LOG_LEVEL", "info").lower()
 access_log_format = '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s" %(D)s'
 
 # Process naming
-proc_name = "esg-copilot-api"
+proc_name = "reggie-ai-copilot-api"
 
 # Server mechanics
 daemon = False

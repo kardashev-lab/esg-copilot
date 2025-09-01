@@ -1,1 +1,1 @@
-# ESG AI Co-Pilot Backend Application
+# Reggie - AI Regulations Co-Pilot Backend Application

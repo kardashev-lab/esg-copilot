@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ESG AI Co-Pilot - Production Deployment Script
+# Reggie - AI Regulations Co-Pilot - Production Deployment Script
 # This script deploys the application to production environment
 
 set -euo pipefail  # Exit on error, undefined vars, pipe failures
@@ -339,7 +339,7 @@ rollback() {
 
 # Main deployment flow
 main() {
-    log_info "Starting ESG AI Co-Pilot production deployment..."
+    log_info "Starting Reggie - AI Regulations Co-Pilot production deployment..."
     
     # Set trap for cleanup on failure
     trap 'rollback' ERR
@@ -355,7 +355,7 @@ main() {
     monitor_deployment
     
     log_success "🎉 Production deployment completed successfully!"
-    log_info "Your ESG AI Co-Pilot is now running at http://localhost"
+    log_info "Your Reggie - AI Regulations Co-Pilot is now running at http://localhost"
 }
 
 # Parse command line arguments

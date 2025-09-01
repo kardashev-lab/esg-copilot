@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 class Settings(BaseSettings):
     # API Configuration
     api_v1_str: str = "/api/v1"
-    project_name: str = "ESG AI Co-Pilot"
+    project_name: str = "Reggie - AI Regulations Co-Pilot"
     version: str = "1.0.0"
     
     # Environment

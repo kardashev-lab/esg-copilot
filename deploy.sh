@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# ESG AI Co-Pilot Deployment Script
+# Reggie - AI Regulations Co-Pilot Deployment Script
 # This script provides multiple deployment options
 
 set -e
@@ -290,7 +290,7 @@ restore_data() {
 
 # Function to show help
 show_help() {
-    echo "ESG AI Co-Pilot Deployment Script"
+    echo "Reggie - AI Regulations Co-Pilot Deployment Script"
     echo ""
     echo "Usage: $0 [COMMAND]"
     echo ""
