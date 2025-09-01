@@ -1,0 +1,231 @@
+GRI Standards 2021 - Complete Framework
+
+GRI 1: FOUNDATION
+The GRI Standards are designed to be used by organizations to report about their impacts on the economy, environment, and people. The Standards are structured as a set of interrelated, modular standards.
+
+GRI 2: GENERAL DISCLOSURES
+
+GRI 2-1: Organizational details
+The organization shall report the following information:
+a) the organization's name;
+b) a description of the organization's activities and primary brands, products, and services;
+c) the location of the organization's headquarters;
+d) the number of countries where the organization operates;
+e) the nature of ownership and legal form;
+f) the markets served;
+g) the scale of the organization;
+h) information about employees and other workers;
+i) supply chain information;
+j) significant changes to the organization and its supply chain;
+k) the precautionary approach or principle;
+l) externally developed economic, environmental, and social charters, principles, or other initiatives;
+m) membership of associations;
+n) a statement from the most senior decision-maker of the organization about the relevance of sustainability to the organization and the organization's strategy for addressing sustainability.
+
+GRI 2-2: Entities included in the organization's sustainability reporting
+The organization shall report the following information:
+a) a list of all entities included in the organization's consolidated financial statements or equivalent documents;
+b) a list of all entities not included in the organization's consolidated financial statements or equivalent documents that are included in the organization's sustainability reporting;
+c) an explanation of the reasons for any entity being included in the organization's sustainability reporting but not in the organization's consolidated financial statements or equivalent documents;
+d) an explanation of the reasons for any entity being included in the organization's consolidated financial statements or equivalent documents but not in the organization's sustainability reporting.
+
+GRI 2-3: Reporting period, frequency and contact point
+The organization shall report the following information:
+a) the reporting period for the information provided;
+b) the date of the most recent previous report;
+c) the reporting cycle;
+d) the contact point for questions regarding the report or its contents.
+
+GRI 2-4: Restatements of information
+The organization shall report the following information:
+a) the reason for any restatements of information provided in previous reports;
+b) the nature of the restatements;
+c) the impact of the restatements on the information provided in the current report.
+
+GRI 2-5: External assurance
+The organization shall report the following information:
+a) the approach to seeking external assurance for the report;
+b) the relationship between the organization and the assurance providers;
+c) whether the highest governance body or any senior executives are involved in seeking external assurance;
+d) the scope and basis of any external assurance provided;
+e) whether the report has been prepared in accordance with the GRI Standards.
+
+GRI 3: MATERIAL TOPICS
+
+GRI 3-1: Process to determine material topics
+The organization shall report the following information:
+a) a description of the process for determining material topics;
+b) a description of the process for prioritizing material topics;
+c) a description of how the organization has applied the principle of materiality in determining the content of the report.
+
+GRI 3-2: List of material topics
+The organization shall report the following information:
+a) a list of the material topics identified in the process for determining material topics;
+b) for each material topic, a description of why the topic is material;
+c) for each material topic, a description of the organization's approach to managing the topic.
+
+GRI 3-3: Management of material topics
+The organization shall report the following information:
+a) for each material topic, a description of how the organization manages the topic;
+b) for each material topic, a description of the organization's approach to stakeholder engagement;
+c) for each material topic, a description of the organization's approach to due diligence.
+
+ENVIRONMENTAL STANDARDS (GRI 300)
+
+GRI 301: Materials
+GRI 301-1: Materials used by weight or volume
+GRI 301-2: Recycled input materials used
+GRI 301-3: Reclaimed products and their packaging materials
+
+GRI 302: Energy
+GRI 302-1: Energy consumption within the organization
+GRI 302-2: Energy consumption outside of the organization
+GRI 302-3: Energy intensity
+GRI 302-4: Reduction of energy consumption
+GRI 302-5: Reductions in energy requirements of products and services
+
+GRI 303: Water and Effluents
+GRI 303-1: Interactions with water as a shared resource
+GRI 303-2: Management of water discharge-related impacts
+GRI 303-3: Water withdrawal
+GRI 303-4: Water discharge
+GRI 303-5: Water consumption
+
+GRI 304: Biodiversity
+GRI 304-1: Operational sites owned, leased, managed in, or adjacent to, protected areas and areas of high biodiversity value outside protected areas
+GRI 304-2: Significant impacts of activities, products, and services on biodiversity
+GRI 304-3: Habitats protected or restored
+GRI 304-4: IUCN Red List species and national conservation list species with habitats in areas affected by operations
+
+GRI 305: Emissions
+GRI 305-1: Direct (Scope 1) GHG emissions
+GRI 305-2: Energy indirect (Scope 2) GHG emissions
+GRI 305-3: Other indirect (Scope 3) GHG emissions
+GRI 305-4: GHG emissions intensity
+GRI 305-5: Reduction of GHG emissions
+GRI 305-6: Emissions of ozone-depleting substances (ODS)
+GRI 305-7: Nitrogen oxides (NOX), sulfur oxides (SOX), and other significant air emissions
+
+GRI 306: Effluents and Waste
+GRI 306-1: Water discharge by quality and destination
+GRI 306-2: Waste by type and disposal method
+GRI 306-3: Significant spills
+GRI 306-4: Transport of hazardous waste
+GRI 306-5: Water bodies affected by water discharges and/or runoff
+
+GRI 307: Environmental Compliance
+GRI 307-1: Non-compliance with environmental laws and regulations
+
+GRI 308: Supplier Environmental Assessment
+GRI 308-1: New suppliers that were screened using environmental criteria
+GRI 308-2: Negative environmental impacts in the supply chain and actions taken
+
+SOCIAL STANDARDS (GRI 400)
+
+GRI 401: Employment
+GRI 401-1: New employee hires and employee turnover
+GRI 401-2: Benefits provided to full-time employees that are not provided to temporary or part-time employees
+GRI 401-3: Parental leave
+
+GRI 402: Labor/Management Relations
+GRI 402-1: Minimum notice periods regarding operational changes
+
+GRI 403: Occupational Health and Safety
+GRI 403-1: Occupational health and safety management system
+GRI 403-2: Hazard identification, risk assessment, and incident investigation
+GRI 403-3: Occupational health services
+GRI 403-4: Worker participation, consultation, and communication on occupational health and safety
+GRI 403-5: Worker training on occupational health and safety
+GRI 403-6: Promotion of worker health
+GRI 403-7: Prevention and mitigation of occupational health and safety impacts directly linked by business relationships
+GRI 403-8: Workers covered by an occupational health and safety management system
+GRI 403-9: Work-related injuries
+GRI 403-10: Work-related ill health
+
+GRI 404: Training and Education
+GRI 404-1: Average hours of training per year per employee
+GRI 404-2: Programs for upgrading employee skills and transition assistance programs
+GRI 404-3: Percentage of employees receiving regular performance and career development reviews
+
+GRI 405: Diversity and Equal Opportunity
+GRI 405-1: Diversity of governance bodies and employees
+GRI 405-2: Ratio of basic salary and remuneration of women to men
+
+GRI 406: Non-discrimination
+GRI 406-1: Incidents of discrimination and corrective actions taken
+
+GRI 407: Freedom of Association and Collective Bargaining
+GRI 407-1: Operations and suppliers in which the right to freedom of association and collective bargaining may be at risk
+
+GRI 408: Child Labor
+GRI 408-1: Operations and suppliers at significant risk for incidents of child labor
+
+GRI 409: Forced or Compulsory Labor
+GRI 409-1: Operations and suppliers at significant risk for incidents of forced or compulsory labor
+
+GRI 410: Security Practices
+GRI 410-1: Security personnel trained in human rights policies or procedures
+
+GRI 411: Rights of Indigenous Peoples
+GRI 411-1: Incidents of violations involving rights of indigenous peoples
+
+GRI 412: Human Rights Assessment
+GRI 412-1: Operations that have been subject to human rights reviews or impact assessments
+GRI 412-2: Employee training on human rights issues
+GRI 412-3: Significant investment agreements and contracts that include human rights clauses or that underwent human rights screening
+
+GRI 413: Local Communities
+GRI 413-1: Operations with local community engagement, impact assessments, and development programs
+GRI 413-2: Operations with significant actual and potential negative impacts on local communities
+
+GRI 414: Supplier Social Assessment
+GRI 414-1: New suppliers that were screened using social criteria
+GRI 414-2: Negative social impacts in the supply chain and actions taken
+
+GRI 415: Public Policy
+GRI 415-1: Political contributions
+
+GRI 416: Customer Health and Safety
+GRI 416-1: Assessment of the health and safety impacts of product and service categories
+GRI 416-2: Incidents of non-compliance concerning the health and safety impacts of products and services
+
+GRI 417: Marketing and Labeling
+GRI 417-1: Requirements for product and service information and labeling
+GRI 417-2: Incidents of non-compliance concerning product and service information and labeling
+GRI 417-3: Incidents of non-compliance concerning marketing communications
+
+GRI 418: Customer Privacy
+GRI 418-1: Substantiated complaints concerning breaches of customer privacy and losses of customer data
+
+ECONOMIC STANDARDS (GRI 200)
+
+GRI 201: Economic Performance
+GRI 201-1: Direct economic value generated and distributed
+GRI 201-2: Financial implications and other risks and opportunities due to climate change
+GRI 201-3: Defined benefit plan obligations and other retirement plans
+GRI 201-4: Financial assistance received from government
+
+GRI 202: Market Presence
+GRI 202-1: Ratios of standard entry level wage by gender compared to local minimum wage at significant locations of operation
+GRI 202-2: Proportion of senior management hired from the local community at significant locations of operation
+
+GRI 203: Indirect Economic Impacts
+GRI 203-1: Infrastructure investments and services supported
+GRI 203-2: Significant indirect economic impacts
+
+GRI 204: Procurement Practices
+GRI 204-1: Proportion of spending on local suppliers at significant locations of operation
+
+GRI 205: Anti-corruption
+GRI 205-1: Operations assessed for risks related to corruption
+GRI 205-2: Communication and training about anti-corruption policies and procedures
+GRI 205-3: Confirmed incidents of corruption and actions taken
+
+GRI 206: Anti-competitive Behavior
+GRI 206-1: Legal actions for anti-competitive behavior, anti-trust, and monopoly practices
+
+GRI 207: Tax
+GRI 207-1: Approach to tax
+GRI 207-2: Tax governance, control, and risk management
+GRI 207-3: Stakeholder engagement and management of concerns about tax
+GRI 207-4: Country-by-country reporting

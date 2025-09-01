@@ -1,0 +1,165 @@
+SASB Standards 2018 - Sustainability Accounting Standards Board
+
+OVERVIEW
+The SASB Standards identify the subset of environmental, social, and governance (ESG) issues most relevant to financial performance in each of 77 industries. The Standards are designed to help businesses around the world identify, manage, and communicate financially material sustainability information to their investors.
+
+GENERAL ISSUE CATEGORIES
+
+1. BUSINESS MODEL AND INNOVATION
+Addresses the integration of environmental and social factors in defining the business opportunity, the value proposition, and the strategy for delivering value to customers and shareholders over the long term.
+
+2. LEADERSHIP AND GOVERNANCE
+Addresses management of environmental and social risks and opportunities in corporate strategy, risk management, and stakeholder relations.
+
+3. RISK AND RISK MANAGEMENT
+Addresses identification, assessment, and management of environmental and social risks that may affect the business model and operations.
+
+4. METRICS AND TARGETS
+Addresses disclosure of performance metrics and targets used to assess and manage environmental and social risks and opportunities.
+
+INDUSTRY-SPECIFIC STANDARDS
+
+TECHNOLOGY & COMMUNICATIONS
+
+Software & IT Services
+- Data Security: Number of data breaches, percentage of systems and applications covered by security policies
+- Energy Management: Energy consumed for data centers, percentage of renewable energy used
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Accessibility & Privacy: Number of accessibility-related lawsuits, percentage of products with accessibility features
+
+Hardware
+- Energy Management: Energy consumed for manufacturing operations, percentage of renewable energy used
+- Hazardous Waste Management: Amount of hazardous waste generated, percentage recycled
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Supply Chain Management: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+
+FINANCIALS
+
+Asset Management & Custody Activities
+- Integration of Environmental, Social, and Governance (ESG) Factors in Investment Analysis: Percentage of assets under management (AUM) where ESG factors are integrated into investment analysis
+- Employee Diversity & Inclusion: Percentage of employees by gender and race/ethnicity, percentage of senior executives by gender and race/ethnicity
+- Business Ethics: Number of legal proceedings associated with fraud, insider trading, or other unethical behavior
+
+Commercial Banks
+- Financing Environmental & Social Risks: Percentage of loans to carbon-intensive industries, percentage of loans to projects with environmental impact assessments
+- Energy Efficiency in Data Centers: Energy consumed for data centers, percentage of renewable energy used
+- Employee Diversity & Inclusion: Percentage of employees by gender and race/ethnicity, percentage of senior executives by gender and race/ethnicity
+- Business Ethics: Number of legal proceedings associated with fraud, insider trading, or other unethical behavior
+
+INDUSTRIALS
+
+Aerospace & Defense
+- Energy Management: Energy consumed for manufacturing operations, percentage of renewable energy used
+- Hazardous Waste Management: Amount of hazardous waste generated, percentage recycled
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Supply Chain Management: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+
+Automobiles
+- Fuel Economy & Use-phase Emissions: Average fuel economy of fleet, percentage of vehicles meeting emissions standards
+- Materials Sourcing: Percentage of materials sourced from suppliers with environmental management systems
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Supply Chain Management: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+
+HEALTHCARE
+
+Biotechnology & Pharmaceuticals
+- Product Safety & Side Effects: Number of product recalls, number of adverse event reports
+- Access to Medicines: Percentage of revenue from products in developing countries, number of patients reached through access programs
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Supply Chain Management: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+
+Healthcare Delivery
+- Patient Safety: Number of medical errors, percentage of patients with adverse events
+- Access to Healthcare: Percentage of patients with insurance coverage, number of uninsured patients served
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Supply Chain Management: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+
+RESOURCE TRANSFORMATION
+
+Chemicals
+- Greenhouse Gas Emissions: Scope 1 and Scope 2 emissions, percentage reduction from baseline
+- Toxic Emissions & Waste: Amount of toxic emissions, percentage of waste recycled
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Supply Chain Management: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+
+Metals & Mining
+- Greenhouse Gas Emissions: Scope 1 and Scope 2 emissions, percentage reduction from baseline
+- Water Management: Water withdrawn, percentage recycled
+- Biodiversity Impacts: Number of sites in or adjacent to protected areas, hectares of land disturbed
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Supply Chain Management: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+
+TRANSPORTATION
+
+Airlines
+- Fuel Management & Efficiency: Fuel consumed, average fuel efficiency
+- Noise Management: Number of noise complaints, percentage of fleet meeting noise standards
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Supply Chain Management: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+
+Shipping
+- Fuel Management & Efficiency: Fuel consumed, average fuel efficiency
+- Water Management: Ballast water discharged, percentage treated
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Supply Chain Management: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+
+CONSUMER GOODS
+
+Apparel, Accessories & Footwear
+- Labor Conditions in Supply Chain: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+- Materials Sourcing: Percentage of materials sourced from suppliers with environmental management systems
+- Product Lifecycle Impacts: Percentage of products with end-of-life management programs
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+
+Food & Beverage
+- Product Safety & Quality: Number of product recalls, percentage of products meeting quality standards
+- Water Management: Water withdrawn, percentage recycled
+- Labor Conditions in Supply Chain: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+
+SERVICES
+
+Professional & Commercial Services
+- Energy Management: Energy consumed for operations, percentage of renewable energy used
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Business Ethics: Number of legal proceedings associated with fraud, insider trading, or other unethical behavior
+
+Real Estate
+- Energy Management: Energy consumed for operations, percentage of renewable energy used
+- Water Management: Water withdrawn, percentage recycled
+- Employee Health & Safety: Total recordable incident rate, average hours of safety training per employee
+- Labor Relations: Percentage of employees covered by collective bargaining agreements
+- Supply Chain Management: Percentage of suppliers audited for labor standards, number of supplier code of conduct violations
+
+IMPLEMENTATION GUIDANCE
+
+Materiality Assessment
+1. Identify sustainability topics relevant to the industry
+2. Assess financial impact of each topic
+3. Prioritize topics based on financial materiality
+4. Develop disclosure strategy for material topics
+
+Disclosure Framework
+1. Business Model and Innovation: How sustainability factors affect business strategy
+2. Leadership and Governance: How sustainability is managed at the board and executive level
+3. Risk and Risk Management: How sustainability risks are identified and managed
+4. Metrics and Targets: Performance indicators and goals for material topics
+
+Assurance and Verification
+- Consider third-party assurance for sustainability disclosures
+- Implement internal controls for data quality
+- Establish verification procedures for metrics and targets
+- Regular review and update of disclosure practices

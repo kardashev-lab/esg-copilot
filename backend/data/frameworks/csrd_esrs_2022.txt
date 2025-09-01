@@ -1,0 +1,338 @@
+CSRD ESRS 2022 - Corporate Sustainability Reporting Directive & European Sustainability Reporting Standards
+
+OVERVIEW
+The Corporate Sustainability Reporting Directive (CSRD) requires companies to report on their sustainability impacts, opportunities, and risks. The European Sustainability Reporting Standards (ESRS) provide the detailed reporting requirements for implementing the CSRD.
+
+DOUBLE MATERIALITY ASSESSMENT
+
+Financial Materiality: Sustainability matters that affect or could affect the company's financial position, financial performance, cash flows, access to finance, or cost of capital over the short, medium, or long term.
+
+Impact Materiality: Sustainability matters on which the undertaking has an actual or potential material impact on people or the environment over the short, medium, or long term.
+
+GENERAL REQUIREMENTS (ESRS 1 & 2)
+
+ESRS 1: General Requirements
+- Reporting entity and consolidation approach
+- Reporting period and frequency
+- Materiality assessment process
+- Due diligence process
+- Stakeholder engagement
+- Value chain
+- Business model and value creation
+- Strategy and business model
+- Sustainability risks and opportunities
+- Sustainability policies
+- Sustainability targets and action plans
+- Sustainability governance
+- Remuneration policies
+
+ESRS 2: General Disclosures
+- Basis of preparation
+- Reporting entity
+- Materiality assessment
+- Sustainability governance
+- Strategy and business model
+- Sustainability risks and opportunities
+- Sustainability policies
+- Sustainability targets and action plans
+- Sustainability due diligence
+- Stakeholder engagement
+- Value chain
+- Remuneration policies
+
+ENVIRONMENTAL STANDARDS
+
+ESRS E1: Climate Change
+- Climate change mitigation
+- Climate change adaptation
+- Climate change transition plans
+- Climate change targets
+- Climate change policies
+- Climate change due diligence
+- Climate change governance
+- Climate change risk management
+
+ESRS E2: Pollution
+- Pollution prevention and control
+- Pollution incidents
+- Pollution targets
+- Pollution policies
+- Pollution due diligence
+- Pollution governance
+- Pollution risk management
+
+ESRS E3: Water and Marine Resources
+- Water resources management
+- Marine resources management
+- Water and marine resources targets
+- Water and marine resources policies
+- Water and marine resources due diligence
+- Water and marine resources governance
+- Water and marine resources risk management
+
+ESRS E4: Biodiversity and Ecosystems
+- Biodiversity and ecosystems protection
+- Biodiversity and ecosystems restoration
+- Biodiversity and ecosystems targets
+- Biodiversity and ecosystems policies
+- Biodiversity and ecosystems due diligence
+- Biodiversity and ecosystems governance
+- Biodiversity and ecosystems risk management
+
+ESRS E5: Resource Use and Circular Economy
+- Resource efficiency
+- Circular economy practices
+- Resource use and circular economy targets
+- Resource use and circular economy policies
+- Resource use and circular economy due diligence
+- Resource use and circular economy governance
+- Resource use and circular economy risk management
+
+SOCIAL STANDARDS
+
+ESRS S1: Own Workforce
+- Working conditions
+- Equal treatment and opportunities
+- Other work-related rights
+- Health and safety
+- Work-life balance
+- Training and skills development
+- Employee representation and social dialogue
+- Diversity and equal opportunities
+- Adequate wages
+- Social protection
+
+ESRS S2: Workers in the Value Chain
+- Working conditions
+- Equal treatment and opportunities
+- Other work-related rights
+- Health and safety
+- Work-life balance
+- Training and skills development
+- Employee representation and social dialogue
+- Diversity and equal opportunities
+- Adequate wages
+- Social protection
+
+ESRS S3: Affected Communities
+- Community engagement
+- Community health and safety
+- Community rights
+- Community development
+- Community consultation
+- Community grievances
+- Community compensation
+- Community relocation
+
+ESRS S4: Consumers and End-Users
+- Product and service safety
+- Product and service information
+- Product and service labeling
+- Marketing and advertising
+- Data privacy and security
+- Customer complaints
+- Customer satisfaction
+- Customer education
+
+GOVERNANCE STANDARDS
+
+ESRS G1: Business Conduct
+- Business ethics
+- Anti-corruption and anti-bribery
+- Political engagement
+- Lobbying activities
+- Tax strategy
+- Fair competition
+- Intellectual property rights
+- Data protection
+
+ESRS G2: Governance, Risk Management, and Internal Control
+- Sustainability governance
+- Sustainability risk management
+- Sustainability internal control
+- Sustainability reporting
+- Sustainability assurance
+- Sustainability compliance
+- Sustainability monitoring
+- Sustainability review
+
+IMPLEMENTATION REQUIREMENTS
+
+Scope of Application:
+- Large companies (250+ employees, €40M+ turnover, €20M+ balance sheet)
+- Listed companies (except micro-enterprises)
+- Non-EU companies with significant EU operations
+- Financial institutions and insurance companies
+
+Reporting Requirements:
+- Annual sustainability report
+- Digital tagging of sustainability information
+- Third-party assurance
+- Integration with financial reporting
+- Consistency with financial reporting period
+
+Assurance Requirements:
+- Limited assurance initially (2024-2028)
+- Reasonable assurance from 2028
+- Independent assurance providers
+- Assurance of materiality assessment
+- Assurance of sustainability information
+
+Digital Reporting:
+- XBRL tagging of sustainability information
+- Machine-readable format
+- Structured data reporting
+- Integration with ESEF (European Single Electronic Format)
+
+COMPLIANCE TIMELINE
+
+Phase 1 (2024): Large listed companies
+- Companies with 500+ employees
+- First reports due in 2025
+
+Phase 2 (2025): All large companies
+- Companies with 250+ employees
+- First reports due in 2026
+
+Phase 3 (2026): Listed SMEs
+- Small and medium enterprises
+- First reports due in 2027
+
+Phase 4 (2028): Non-EU companies
+- Companies with significant EU operations
+- First reports due in 2029
+
+MATERIALITY ASSESSMENT PROCESS
+
+Step 1: Identify sustainability matters
+- Review ESRS standards
+- Consider industry-specific issues
+- Engage with stakeholders
+- Analyze value chain impacts
+
+Step 2: Assess financial materiality
+- Impact on financial position
+- Impact on financial performance
+- Impact on cash flows
+- Impact on access to finance
+- Impact on cost of capital
+
+Step 3: Assess impact materiality
+- Actual impacts on people
+- Potential impacts on people
+- Actual impacts on environment
+- Potential impacts on environment
+
+Step 4: Determine material topics
+- Topics that meet financial materiality threshold
+- Topics that meet impact materiality threshold
+- Topics that meet both thresholds
+- Topics that meet neither threshold
+
+Step 5: Prioritize material topics
+- High materiality topics
+- Medium materiality topics
+- Low materiality topics
+- Non-material topics
+
+STAKEHOLDER ENGAGEMENT
+
+Stakeholder Identification:
+- Employees and workers
+- Customers and consumers
+- Suppliers and business partners
+- Investors and lenders
+- Regulators and policymakers
+- Civil society organizations
+- Local communities
+- Indigenous peoples
+
+Engagement Methods:
+- Surveys and questionnaires
+- Interviews and focus groups
+- Public consultations
+- Advisory panels
+- Multi-stakeholder forums
+- Grievance mechanisms
+- Regular dialogue
+- Feedback channels
+
+Engagement Process:
+- Stakeholder mapping
+- Engagement planning
+- Engagement implementation
+- Feedback collection
+- Response development
+- Follow-up actions
+- Monitoring and evaluation
+- Continuous improvement
+
+DUE DILIGENCE PROCESS
+
+Due Diligence Framework:
+- Identify adverse impacts
+- Prevent adverse impacts
+- Cease adverse impacts
+- Mitigate adverse impacts
+- Provide remediation
+- Track implementation
+- Communicate on due diligence
+- Review and update
+
+Due Diligence Steps:
+1. Embed responsible business conduct
+2. Identify adverse impacts
+3. Prevent and mitigate adverse impacts
+4. Establish grievance mechanisms
+5. Track implementation and results
+6. Communicate on due diligence
+7. Provide remediation
+8. Review and update due diligence
+
+Due Diligence Integration:
+- Integration with business processes
+- Integration with risk management
+- Integration with compliance
+- Integration with procurement
+- Integration with human resources
+- Integration with operations
+- Integration with strategy
+- Integration with governance
+
+REPORTING GUIDANCE
+
+Report Structure:
+- Executive summary
+- Materiality assessment
+- Governance and strategy
+- Environmental performance
+- Social performance
+- Governance performance
+- Targets and action plans
+- Risk management
+- Due diligence
+- Stakeholder engagement
+- Assurance statement
+- Appendices
+
+Report Content:
+- Material topics only
+- Forward-looking information
+- Quantitative and qualitative data
+- Context and narrative
+- Performance indicators
+- Targets and progress
+- Risk and opportunity analysis
+- Impact assessment
+- Stakeholder perspectives
+- Assurance coverage
+
+Report Quality:
+- Accuracy and reliability
+- Completeness and balance
+- Clarity and accessibility
+- Comparability and consistency
+- Timeliness and relevance
+- Verifiability and auditability
+- Neutrality and objectivity
+- Understandability and usability

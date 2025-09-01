@@ -1,0 +1,190 @@
+TCFD Framework 2017 - Task Force on Climate-related Financial Disclosures
+
+OVERVIEW
+The Task Force on Climate-related Financial Disclosures (TCFD) was established by the Financial Stability Board (FSB) to develop voluntary, consistent climate-related financial risk disclosures for use by companies in providing information to lenders, insurers, investors, and other stakeholders.
+
+CORE ELEMENTS
+
+1. GOVERNANCE
+Disclose the organization's governance around climate-related risks and opportunities.
+
+Recommendation 1: Governance
+a) Describe the board's oversight of climate-related risks and opportunities
+b) Describe management's role in assessing and managing climate-related risks and opportunities
+
+Implementation Guidance:
+- Board oversight: Describe how the board monitors and oversees climate-related risks and opportunities
+- Management role: Describe management's role in assessing and managing climate-related risks and opportunities
+- Integration: Explain how climate-related risks are integrated into overall risk management
+
+2. STRATEGY
+Disclose the actual and potential impacts of climate-related risks and opportunities on the organization's businesses, strategy, and financial planning.
+
+Recommendation 2: Strategy
+a) Describe the climate-related risks and opportunities the organization has identified over the short, medium, and long term
+b) Describe the impact of climate-related risks and opportunities on the organization's businesses, strategy, and financial planning
+c) Describe the resilience of the organization's strategy, taking into consideration different climate-related scenarios, including a 2°C or lower scenario
+
+Implementation Guidance:
+- Risk identification: Describe processes for identifying climate-related risks and opportunities
+- Time horizons: Define short, medium, and long term (e.g., 0-1 year, 1-5 years, 5+ years)
+- Impact assessment: Quantify financial impacts where possible
+- Scenario analysis: Use multiple scenarios including 2°C or lower scenario
+
+3. RISK MANAGEMENT
+Disclose how the organization identifies, assesses, and manages climate-related risks.
+
+Recommendation 3: Risk Management
+a) Describe the organization's processes for identifying and assessing climate-related risks
+b) Describe the organization's processes for managing climate-related risks
+c) Describe how processes for identifying, assessing, and managing climate-related risks are integrated into the organization's overall risk management
+
+Implementation Guidance:
+- Risk identification: Describe processes for identifying climate-related risks
+- Risk assessment: Explain how risks are assessed and prioritized
+- Risk management: Describe risk management processes and controls
+- Integration: Explain integration with overall risk management framework
+
+4. METRICS AND TARGETS
+Disclose the metrics and targets used to assess and manage relevant climate-related risks and opportunities.
+
+Recommendation 4: Metrics and Targets
+a) Disclose the metrics used by the organization to assess climate-related risks and opportunities in line with its strategy and risk management process
+b) Disclose Scope 1, Scope 2, and, if appropriate, Scope 3 greenhouse gas (GHG) emissions, and the related risks
+c) Describe the targets used by the organization to manage climate-related risks and opportunities and performance against targets
+
+Implementation Guidance:
+- Metrics: Disclose relevant metrics for assessing climate-related risks and opportunities
+- GHG emissions: Report Scope 1, Scope 2, and Scope 3 emissions where material
+- Targets: Set and disclose targets for managing climate-related risks and opportunities
+- Performance: Report performance against targets
+
+CLIMATE-RELATED RISKS
+
+Physical Risks
+Acute: Event-driven risks including increased severity of extreme weather events
+- Increased severity of extreme weather events
+- Increased frequency of extreme weather events
+- Increased severity of extreme weather events
+
+Chronic: Longer-term shifts in climate patterns
+- Rising mean temperatures
+- Sea level rise
+- Changes in precipitation patterns and variability
+- Changes in weather patterns
+
+Transition Risks
+Policy and Legal: Policy action to address climate change
+- Pricing of GHG emissions
+- Enhanced emissions-reporting obligations
+- Mandates on and regulation of existing products and services
+- Exposure to litigation
+
+Technology: Costs and opportunities of transition to lower emissions technology
+- Substitution of existing products and services with lower emissions alternatives
+- Unsuccessful investment in new technologies
+- Costs to transition to lower emissions technology
+
+Market: Changing customer behavior, uncertain market signals, and increased costs of doing business
+- Changing customer behavior
+- Uncertain market signals
+- Increased cost of raw materials
+- Increased energy costs
+- Reputation impacts
+
+Reputational: Changing customer or community perceptions of an organization's contribution to or detraction from the transition to a lower-carbon economy
+- Changing customer preferences
+- Stigmatization of sector
+- Increased stakeholder concern or negative stakeholder feedback
+
+CLIMATE-RELATED OPPORTUNITIES
+
+Resource Efficiency: Opportunities to improve resource efficiency
+- Energy efficiency
+- Water efficiency
+- Waste reduction
+- Material efficiency
+
+Energy Source: Opportunities to use lower-emissions sources of energy
+- Renewable energy
+- Nuclear energy
+- Carbon capture and storage
+- Energy storage
+
+Products and Services: Opportunities to develop and offer new products and services
+- Low-emissions products and services
+- Adaptation products and services
+- Climate-resilient products and services
+
+Markets: Opportunities to access new markets
+- New geographic markets
+- New customer segments
+- New product markets
+
+Resilience: Opportunities to build resilience
+- Climate-resilient operations
+- Climate-resilient supply chains
+- Climate-resilient products and services
+
+SCENARIO ANALYSIS
+
+Recommended Scenarios:
+1. 2°C or Lower Scenario: Aligned with Paris Agreement goals
+2. Business-as-Usual Scenario: Based on current trends and policies
+3. Disorderly Transition Scenario: Rapid policy changes and market disruptions
+
+Scenario Analysis Process:
+1. Define scenarios and time horizons
+2. Identify climate-related risks and opportunities
+3. Assess financial impacts
+4. Evaluate strategic resilience
+5. Develop response strategies
+
+DISCLOSURE GUIDANCE
+
+General Guidance:
+- Disclose information that is material to investors
+- Use consistent metrics and methodologies
+- Provide forward-looking information where possible
+- Consider industry-specific guidance
+- Integrate with existing reporting processes
+
+Sector-Specific Guidance:
+- Financial Sector: Focus on portfolio risks and opportunities
+- Non-Financial Sector: Focus on operational and strategic risks and opportunities
+- Energy Sector: Focus on transition risks and opportunities
+- Transportation Sector: Focus on fuel efficiency and alternative fuels
+
+Implementation Timeline:
+- Phase 1: Governance and risk management disclosures
+- Phase 2: Strategy and metrics disclosures
+- Phase 3: Scenario analysis and targets
+- Phase 4: Enhanced disclosures and assurance
+
+ASSURANCE AND VERIFICATION
+
+Internal Controls:
+- Establish internal controls for climate-related disclosures
+- Implement data quality controls
+- Develop verification procedures
+- Regular review and update of disclosures
+
+External Assurance:
+- Consider third-party assurance for climate-related disclosures
+- Engage with assurance providers on climate-related matters
+- Disclose assurance scope and findings
+- Regular assurance of key metrics and targets
+
+STAKEHOLDER ENGAGEMENT
+
+Investor Engagement:
+- Regular dialogue with investors on climate-related matters
+- Disclose investor engagement activities
+- Respond to investor inquiries and concerns
+- Provide additional information on request
+
+Other Stakeholder Engagement:
+- Engage with regulators and policymakers
+- Participate in industry initiatives
+- Collaborate with peers and partners
+- Communicate with employees and communities
